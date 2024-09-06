@@ -6,7 +6,8 @@
     <title>Project Introduction</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family :Georgia, sans-serif;
+            font-weight: 600; 
             line-height: 1.6;
             color: #333;
             max-width: 800px;
@@ -42,7 +43,7 @@
         }
 
         td {
-            border: 1px solid black;
+            border: 1px solid rgba(0, 0, 0, 0.197);
             padding: 10px;
             text-align: center;
         }
@@ -62,13 +63,27 @@
     <div class="container">
         <img src="/result/sergei.jpg" alt="Description"  width=150;>
         <p>
-            Sergei Mikhailovich Prokudin-Gorskii (1863-1944) travelled across the Russian Empire and took photographs of pretty 
+            &nbsp &nbspSergei Mikhailovich Prokudin-Gorskii (1863-1944) travelled across the Russian Empire and took photographs of pretty 
             much everything. He recorded each photo with three glass plates, each using a red, green, or blue filter. His RGB glass
             plates survived the time and was digitized and made online. This project is to align three color of glass plates and 
             made colorful photographs of Sergei's collection.
         </p>
     </div>
     
+    <h2>Center-Aligned Normalized Cross-Correlation</h2>
+    <p>
+        &nbsp &nbspThe primary metric to align the Green and Red plates to blue is to exhausticly search the best image displacement over
+        a 15 by 15 pixel space with the highest normlazed
+        Cross-Correlation score, which is simply a dot product between two normalized vectors: (image1./||image1|| and image2./||image2||), 
+        where image1 refers to the flatten vector of the image 2d-array.
+        <br> &nbsp &nbsp Instead of using np.roll(), my implementation of image displacement involve taking sub-array from a larger black board made by np.zeros()
+        with the image at the center. Thus, some border pixels simply become 0 after displacement. This become an issue because in dot product the
+        larger the displacement, the lower the score you get from those border pixels. So I dicided to simply calculate NCC score by the center
+        portion of the image. ALthough this method might fail in some occassions where the center is largely of the same color, it works pretty well
+        for this dataset.
+        For images with higher resolution, the aligment goes through layers of rescaling in a pyramid. 
+    </p>
+
     
     <h2>Result</h2>
     <div class="table-container">
@@ -134,10 +149,23 @@
         </table>
     </div>
     
-    <h2>Our Approach</h2>
-    <p>We approach this project by [brief explanation of methodology or approach]. This allows us to [benefits of the approach].</p>
+    <h2>Bells and Whistles: Image Dehazing</h2>
+    <p>
+        The plates Sergei used at the time is much less sensitive and had lower dynamic range 
+        thanthe digital sensor's today. Needless to say the degradation of those plates over time,
+        details of color, exposure, and contours have been lost due to those reasons, making those images looked washed-out, 
+        and hazy. There are a lot of ways to adjust color, contrast, and white balance to make better,
+        but here I just want to try to "reverse" the process  and adds more detail
+         to sharpen the image.
+        <br> I used the function unsharp_mask() from skimage.filters. This approach first creates a blurred
+        version of the image using Gaussian filter, estimating the images after losing some details. Then, we add back
+        this estimation to enhance the original image. Specifically, <br>enhanced image = original + amount * (original - blurred).
+        <br>With the right amount and blurriness, dehazing could improve vibrance, contrast and exposure. But too much may cause
+        color bleeding and over exposure. In my experiments, this approach usually works better on images shot outside without portrait
+        of human.
+    </p>
     
-    <img src="/api/placeholder/800/400" alt="Project Approach Diagram">
+    
     
     <h2>Get Involved</h2>
     <p>We welcome contributions and feedback. Here's how you can get involved:</p>
