@@ -3,100 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Your Blog Post</title>
+    <title>Project Introduction</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 20px;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-        }
-        header {
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        .container {
+            color: #333;
             max-width: 800px;
-            margin: 20px auto;
+            margin: 0 auto;
             padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            
         }
-        .post-section {
-            margin-bottom: 20px;
-        }
-        .post-section img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 10px 0;
-            border-radius: 10px;
-        }
-        .chart {
+        h1 {
+            color: #004ba784;
             text-align: center;
-            margin: 20px 0;
         }
-        .chart img {
-            max-width: 100%;
-            height: auto;
-            display: inline-block;
-        }
-        footer {
+        h2 {
+            color: #34495e;
             text-align: center;
-            padding: 10px 0;
-            font-size: 0.9em;
-            color: #777;
         }
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2em;
-            }
-            .container {
-                padding: 10px;
-            }
+        
+        .container {
+            display: flex;
+            align-items: center; 
         }
+        .container img {
+            margin-right: 20px; /* Adds space between the image and the paragraph */
+        }
+
+        .table-container {
+            display: flex;
+            justify-content: center; /* Center the table horizontally */
+        }
+
+
+        table {
+            border-collapse: collapse; /* Optional, for better border handling */
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        img {
+            width : 250px;
+        }
+       
+</style>
     </style>
 </head>
+
 <body>
+    <h1>Colorizing the Prokudin-Gorskii photo collection</h1>
+    
+    <h2>Introduction</h2>
 
-<header>
-    <h1>Your Blog Title</h1>
-</header>
-
-<div class="container">
-    <!-- Blog content section -->
-    <div class="post-section">
-        <h2>Your Post Title</h2>
-        <p>Your blog content goes here. This is a placeholder for the text. You can include paragraphs, lists, or any other HTML element here. Keep the style simple and focus on the content.</p>
+    <div class="container">
+        <img src="/result/sergei.jpg" alt="Description"  width=150;>
+        <p>
+            Sergei Mikhailovich Prokudin-Gorskii (1863-1944) travelled across the Russian Empire and took photographs of pretty 
+            much everything. He recorded each photo with three glass plates, each using a red, green, or blue filter. His RGB glass
+            plates survived the time and was digitized and made online. This project is to align three color of glass plates and 
+            made colorful photographs of Sergei's collection.
+        </p>
     </div>
-
-    <!-- Image section -->
-    <div class="post-section">
-        <h3>Image Section</h3>
-        <img src="your-image-url.jpg" alt="Description of the image">
-        <p>Caption for the image, explaining what it shows.</p>
+    
+    
+    <h2>Result</h2>
+    <div class="table-container">
+        <table>     
+            <tr>
+                <td colspan=3>Low Resolution</td>
+            </tr>
+            <tr>
+                <td><img src = "/result/cathedral.jpg">
+                    <p>Cathedral<br>G: [-5 -2] &nbsp&nbsp&nbsp  R:[-12  -3]</p>
+                </td>
+                <td><img src = "/result/monastery.jpg">
+                    <p>Monastery<br>G: [ 3 -2] &nbsp&nbsp&nbsp  R:[-3 -2]</p>
+                </td>
+                <td><img src = "/result/tobolsk.jpg">
+                    <p>Tobols<br>G: [-3 -3] &nbsp&nbsp&nbsp  R:[-6 -3]</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan=3>High Resolution</td>
+            </tr>
+            <tr>
+                <td><img src = "/result/church.jpg">
+                    <p>Church<br>G: [-25  -4] &nbsp&nbsp&nbsp  R:[-58   4]</p>
+                </td>
+                <td><img src = "/result/emir.jpg">
+                    <p>Emir<br>G: [-49 -24] &nbsp&nbsp&nbsp  R:[-103  -57]</p>
+                </td>
+                <td><img src = "/result/harvesters.jpg">
+                    <p>Harvesters<br>G: [-60 -17] &nbsp&nbsp&nbsp  R:[-124  -14]</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img src = "/result/icon.jpg">
+                    <p>Icon<br>G: [-41 -17] &nbsp&nbsp&nbsp  R:[-89 -23]</p>
+                </td>
+                <td><img src = "/result/lady.jpg">
+                    <p>Lady<br>G: [-55  -9] &nbsp&nbsp&nbsp  R:[-117  -12]</p>
+                </td>
+                <td><img src = "/result/melons.jpg">
+                    <p>Melons<br>G: [-81 -10] &nbsp&nbsp&nbsp  R:[-178  -14]</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img src = "/result/onion_church.jpg">
+                    <p>Onion Church<br>G: [-51 -27] &nbsp&nbsp&nbsp  R:[-108  -36]</p>
+                </td>
+                <td><img src = "/result/sculpture.jpg">
+                    <p>Sculpture<br>G: [-33  11] &nbsp&nbsp&nbsp  R:[-140   27]</p>
+                </td>
+                <td><img src = "/result/self_portrait.jpg">
+                    <p>Portrait<br>G: [-79 -29] &nbsp&nbsp&nbsp  R:[-176  -37]</p>
+                </td>
+            </tr>
+            <tr></tr>
+                <td><img src = "/result/three_generations.jpg">
+                    <p>Three Generations<br>G: [-52 -14] &nbsp&nbsp&nbsp  R:[-111  -11]</p>
+                </td>
+                <td><img src = "/result/train.jpg">
+                    <p>Train<br>G: [-43  -6] &nbsp&nbsp&nbsp  R:[-87 -32]</p>
+                </td>
+            </tr>
+        </table>
     </div>
-
-    <!-- Chart section -->
-    <div class="chart">
-        <h3>Your Chart Title</h3>
-        <img src="your-chart-image-url.jpg" alt="Chart description">
-        <p>Explanation of the chart or data visualization.</p>
-    </div>
-</div>
-
-<footer>
-    <p>Blog post footer – © 2024 Your Name or Blog Name</p>
-</footer>
-
+    
+    <h2>Our Approach</h2>
+    <p>We approach this project by [brief explanation of methodology or approach]. This allows us to [benefits of the approach].</p>
+    
+    <img src="/api/placeholder/800/400" alt="Project Approach Diagram">
+    
+    <h2>Get Involved</h2>
+    <p>We welcome contributions and feedback. Here's how you can get involved:</p>
+    <ul>
+        <li>Visit our website: [Your Website URL]</li>
+        <li>Contact us: [Your Contact Information]</li>
+        <li>Follow us on social media: [Social Media Links]</li>
+    </ul>
 </body>
 </html>
