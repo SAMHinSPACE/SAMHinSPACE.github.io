@@ -29,17 +29,19 @@
             align-items: center; 
         }
         .container img {
-            margin-right: 20px; /* Adds space between the image and the paragraph */
+            margin-right: 20px; 
         }
 
         .table-container {
             display: flex;
-            justify-content: center; /* Center the table horizontally */
+            justify-content: center;
         }
 
 
         table {
-            border-collapse: collapse; /* Optional, for better border handling */
+            border-collapse: collapse;
+            width: 100%; 
+            table-layout: fixed;
         }
 
         td {
@@ -61,7 +63,7 @@
     <h2>Introduction</h2>
 
     <div class="container">
-        <img src="/result/sergei.jpg" alt="Description"  width=150;>
+        <img src="/result/portrait.jpg" alt="Description"  width=150;>
         <p>
             &nbsp &nbspSergei Mikhailovich Prokudin-Gorskii (1863-1944) travelled across the Russian Empire and took photographs of pretty 
             much everything. He recorded each photo with three glass plates, each using a red, green, or blue filter. His RGB glass
@@ -164,15 +166,32 @@
         color bleeding and over exposure. In my experiments, this approach usually works better on images shot outside without portrait
         of human.
     </p>
+    <div class="table-container"></div>
+        <table>     
+            <tr>
+                <td >Before</td>
+                <td >After</td>
+            </tr>
+            <tr>
+                <td><img src = "/result/cathedral.jpg">
+                </td>
+                <td><img src = "/result/cathedral_dehaze.jpg">
+            </tr>
+            <tr>
+                <td><img src = "/result/sculpture.jpg">
+                </td>
+                <td><img src = "/result/sculpture_dehaze.jpg">
+            </tr>
+            <tr>
+                <td><img src = "/result/self_portrait.jpg">
+                </td>
+                <td><img src = "/result/self_portrait_dehaze.jpg">
+            </tr>
+            
+        </table>
+    </div>
     
     
     
-    <h2>Get Involved</h2>
-    <p>We welcome contributions and feedback. Here's how you can get involved:</p>
-    <ul>
-        <li>Visit our website: [Your Website URL]</li>
-        <li>Contact us: [Your Contact Information]</li>
-        <li>Follow us on social media: [Social Media Links]</li>
-    </ul>
 </body>
 </html>
