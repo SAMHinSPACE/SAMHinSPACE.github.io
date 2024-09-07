@@ -18,10 +18,17 @@
         h1 {
             color: #004ba784;
             text-align: center;
+            font-size: 28px;
         }
         h2 {
+            color: #2b5f94;
+            text-align: center;
+            font-size: 22px;
+        }
+        h3 {
             color: #34495e;
             text-align: center;
+            font-size: 18px;
         }
         
         .container {
@@ -59,6 +66,9 @@
 
 <body>
     <h1>Colorizing the Prokudin-Gorskii photo collection</h1>
+    <h3>by Sam Huang</h3>
+
+    <br>
     
     <h2>Introduction</h2>
 
@@ -71,6 +81,8 @@
             made colorful photographs of Sergei's collection.
         </p>
     </div>
+
+    <br>
     
     <h2>Center-Aligned Normalized Cross-Correlation</h2>
     <p>
@@ -86,6 +98,7 @@
         For images with higher resolution, the aligment goes through layers of rescaling in a pyramid. 
     </p>
 
+    <br>
     
     <h2>Result</h2>
     <div class="table-container">
@@ -151,18 +164,20 @@
         </table>
     </div>
     
+    <br>
+    
     <h2>Bells and Whistles: Image Dehazing</h2>
     <p>
-        The plates Sergei used at the time is much less sensitive and had lower dynamic range 
-        thanthe digital sensor's today. Needless to say the degradation of those plates over time,
+        &nbsp&nbspThe plates Sergei used at the time is much less sensitive and had lower dynamic range 
+        than the digital sensor's today. Needless to say the degradation of those plates over time,
         details of color, exposure, and contours have been lost due to those reasons, making those images looked washed-out, 
         and hazy. There are a lot of ways to adjust color, contrast, and white balance to make better,
-        but here I just want to try to "reverse" the process  and adds more detail
+        but here I just want to try to "reverse" the process and adds more detail
          to sharpen the image.
-        <br> I used the function unsharp_mask() from skimage.filters. This approach first creates a blurred
+        <br>&nbsp&nbsp I used the function unsharp_mask() from skimage.filters. This approach first creates a blurred
         version of the image using Gaussian filter, estimating the images after losing some details. Then, we add back
         this estimation to enhance the original image. Specifically, <br>enhanced image = original + amount * (original - blurred).
-        <br>With the right amount and blurriness, dehazing could improve vibrance, contrast and exposure. But too much may cause
+        <br>&nbsp&nbsp With the right amount and blurriness, dehazing could improve vibrance, clarity, contrast and exposure. But too much may cause
         color bleeding and over exposure. In my experiments, this approach usually works better on images shot outside without portrait
         of human.
     </p>
@@ -191,7 +206,21 @@
         </table>
     </div>
     
-    
-    
+    <br>
+    <h2>Other Images from the Collection</h2>
+    <p>&nbsp&nbspThose are a few of my favorites from the selection after aligning and dehazing. 
+        (Unfortunately, for those images, resotration requires beyond simple dehazing.)
+    </p>
+    <div class="table-container"></div>
+        <table>   
+            <tr>
+                <td><img src = "/result/cedars_dehaze.jpg">
+                </td>
+                <td><img src = "/result/Lastochkino_Gnezdo_dehaze.jpg">
+            </tr>
+            
+            
+        </table>
+    </div>
 </body>
 </html>
