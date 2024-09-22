@@ -1,0 +1,703 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Project 2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(249, 228, 188, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3d40083c-3a5b-41b1-b41f-ca979928bca4" class="page sans"><header><h1 class="page-title">Project 2</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Class</th><td><span class="selected-value select-value-color-blue">CS 180</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Type</th><td><span class="selected-value select-value-color-brown">project</span></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesPerson"><path d="M10.9536 7.90088C12.217 7.90088 13.2559 6.79468 13.2559 5.38525C13.2559 4.01514 12.2114 2.92017 10.9536 2.92017C9.70142 2.92017 8.65137 4.02637 8.65698 5.39087C8.6626 6.79468 9.69019 7.90088 10.9536 7.90088ZM4.4231 8.03003C5.52368 8.03003 6.42212 7.05859 6.42212 5.83447C6.42212 4.63843 5.51245 3.68945 4.4231 3.68945C3.33374 3.68945 2.41846 4.64966 2.41846 5.84009C2.42407 7.05859 3.32251 8.03003 4.4231 8.03003ZM1.37964 13.168H5.49561C4.87231 12.292 5.43384 10.6074 6.78711 9.51807C6.18628 9.14746 5.37769 8.87231 4.4231 8.87231C1.95239 8.87231 0.262207 10.6917 0.262207 12.1628C0.262207 12.7974 0.548584 13.168 1.37964 13.168ZM7.50024 13.168H14.407C15.4009 13.168 15.7322 12.8423 15.7322 12.2864C15.7322 10.8489 13.8679 8.88354 10.9536 8.88354C8.04492 8.88354 6.17505 10.8489 6.17505 12.2864C6.17505 12.8423 6.50635 13.168 7.50024 13.168Z"></path></svg></span>Person</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a/AItbvmmqDjrsM7uUGc2G_mASm1VQ11MWVj8n8BUqRMz2=s100" class="icon user-icon"/>Sam Huang</span></td></tr></tbody></table></header><div class="page-body"><h1 id="10858de6-1d78-80b3-826b-e8ef32213590" class="">Fun With Filters and Frequencies</h1><p id="85c7dc71-3cac-4b71-b90d-9d020a5ec902" class="">This project explores filters and frequencies of images and aim to achieve creative effectives through convolution, Gaussian filters, and Gaussian and Laplacian stacks. </p><h2 id="10958de6-1d78-8061-a8bf-e5f5573863cd" class="">Finite Difference Operator</h2><p id="10958de6-1d78-80e9-8e7e-ef87e044c756" class="">This part is to detect edge of an image through convolution and gaussian filter. We take the partial derivative of the image in both x and y directions by convolving the image matrix with <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>x</mi><mo>=</mo><mrow><mo fence="true">[</mo><mtable rowspacing="0.16em" columnalign="center center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>1</mn></mrow></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">Dx = \begin{bmatrix} 1 &amp; -1 \end{bmatrix}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">[</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.85em;"><span style="top:-3.01em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.35em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.85em;"><span style="top:-3.01em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">−</span><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.35em;"><span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">]</span></span></span></span></span></span></span><span>﻿</span></span>and <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>y</mi><mo>=</mo><mrow><mo fence="true">[</mo><mtable rowspacing="0.16em" columnalign="center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><mn>1</mn></mrow></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">Dy = \begin{bmatrix} 1 \\ -1 \end{bmatrix}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">Dy</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.4em;vertical-align:-0.95em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">[</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">−</span><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.95em;"><span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">]</span></span></span></span></span></span></span><span>﻿</span></span>, respectively. Then we get the gradient from <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>Gradient</mtext><mo>=</mo><msqrt><mrow><mo stretchy="false">(</mo><mi>I</mi><mo>∗</mo><mi>D</mi><mi>x</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">(</mo><mi>I</mi><mo>∗</mo><mi>D</mi><mi>y</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">\text{Gradient} = \sqrt{(I * Dx)^2 + (I * Dy)^2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Gradient</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.305em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.935em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal">x</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">Dy</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-2.895em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.28em' viewBox='0 0 400000 1296' preserveAspectRatio='xMinYMin slice'><path d='M263,681c0.7,0,18,39.7,52,119
+c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
+c340,-704.7,510.7,-1060.3,512,-1067
+l0 -0
+c4.7,-7.3,11,-11,19,-11
+H40000v40H1012.3
+s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
+c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
+s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
+c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
+M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.305em;"><span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> which will get us the edge of the image. Sometimes, this would be better if we blur the image through a Gaussian filter which would smooth the edge and give us better result (the edge would be more continuous).</p><p id="10958de6-1d78-809b-9390-e77702323a92" class="">
+</p><p id="10958de6-1d78-80ac-93e7-e094795583ad" class=""><strong>Original                                                                                                                                          </strong></p><div id="10958de6-1d78-8047-aa63-c4489d542b37" class="column-list"><div id="30c3515b-2761-4539-908c-7784da382c7c" style="width:25%" class="column"><figure id="10958de6-1d78-80ff-b049-dcbd812280c0" class="image" style="text-align:center"><a href="dx.jpg"><img style="width:540px" src="dx.jpg"/></a></figure><p id="10958de6-1d78-80f3-92a9-cdabbff1a6de" class=""><strong>Gaussian</strong></p><figure id="d0af5542-08f9-4281-9dee-2a7ecfacc0d4" class="image" style="text-align:center"><a href="gaussian_dx.jpg"><img style="width:540px" src="gaussian_dx.jpg"/></a></figure><p id="10958de6-1d78-8045-82f9-cc90694163a3" class=""><strong>DoG</strong></p><figure id="10958de6-1d78-8096-850f-f04520e534a1" class="image" style="text-align:center"><a href="dog_dx.jpg"><img style="width:142.48959350585938px" src="dog_dx.jpg"/></a></figure><p id="10958de6-1d78-806b-9a8c-c7d46f0923c7" class="">dx</p></div><div id="b64cf635-e53e-4c77-b4d9-143eb412e295" style="width:25%" class="column"><figure id="10958de6-1d78-8055-abe6-dca18e558ecf" class="image" style="text-align:center"><a href="dy.jpg"><img style="width:142.48959350585938px" src="dy.jpg"/></a></figure><p id="10958de6-1d78-8077-99af-c9510530771a" class="">   </p><figure id="a5f4eda0-7bb0-49e3-9157-f2f34b5a4134" class="image" style="text-align:center"><a href="gaussian_dy.jpg"><img style="width:540px" src="gaussian_dy.jpg"/></a></figure><p id="10958de6-1d78-80a2-8262-d438dcad6f78" class="">    </p><figure id="62ad2978-c43a-46c4-bfe0-b93a085e7845" class="image" style="text-align:center"><a href="dog_dy.jpg"><img style="width:142.48959350585938px" src="dog_dy.jpg"/></a></figure><p id="10958de6-1d78-809f-91c0-c110fbce7650" class="">dy</p></div><div id="32800711-b6e1-4d9f-a774-40b516de8c5c" style="width:25%" class="column"><figure id="a6f8135b-dbdc-4563-95c3-7078ef4ebcf4" class="image" style="text-align:center"><a href="gradient.jpg"><img style="width:142.48959350585938px" src="gradient.jpg"/></a></figure><p id="10958de6-1d78-809a-b010-c699875f20eb" class="">      </p><figure id="10958de6-1d78-8057-9c64-c376d22919bd" class="image" style="text-align:center"><a href="gaussian_gradient.jpg"><img style="width:540px" src="gaussian_gradient.jpg"/></a></figure><p id="10958de6-1d78-80ac-a9f8-fcd2f1fb5d54" class="">   </p><figure id="10958de6-1d78-8027-8e71-ecbbb7d315fc" class="image" style="text-align:center"><a href="dog_gradient.jpg"><img style="width:540px" src="dog_gradient.jpg"/></a></figure><p id="10958de6-1d78-804f-8839-cd2d78296e7b" class="">gradient</p></div><div id="a9b0bd11-86e6-494d-be04-1b46fba92bf6" style="width:25%" class="column"><figure id="10958de6-1d78-800d-b9de-ff3b927f5d74" class="image" style="text-align:center"><a href="binarize.jpg"><img style="width:540px" src="binarize.jpg"/></a></figure><p id="3d411fad-ff42-425b-aeac-d182b00c3ec8" class="">           </p><figure id="e6cc6712-054d-4d69-ac98-f700adfcc669" class="image" style="text-align:center"><a href="gaussian_binarize.jpg"><img style="width:540px" src="gaussian_binarize.jpg"/></a></figure><p id="10958de6-1d78-8003-aa4b-c5d80379fa8a" class="">      </p><figure id="f5c460c9-eec7-4e0e-bb7d-705d3cd446ee" class="image" style="text-align:center"><a href="dog_binarize.jpg"><img style="width:540px" src="dog_binarize.jpg"/></a></figure><p id="10958de6-1d78-8043-83de-c4dabfa7d6ed" class="">binarized</p></div></div><p id="10958de6-1d78-8043-bca5-fb9a39e96f88" class="">You can see that the binarized version of the gradient is the same for Gaussian and derivative of Gaussian, this is because of the associative property of convolution: <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mtext>I</mtext><mo>∗</mo><mtext>kernel</mtext><mo stretchy="false">)</mo><mo>∗</mo><mi>D</mi><mi>x</mi><mo>=</mo><mtext>I</mtext><mo>∗</mo><mo stretchy="false">(</mo><mtext>kernel</mtext><mo>∗</mo><mi>D</mi><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\text{I} * \text{kernel}) * Dx = \text{I} * (\text{kernel} * Dx)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">I</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">kernel</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">I</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">kernel</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>.</p><p id="df55cfae-0971-487c-a30b-5223b7a268f8" class="">
+</p><h2 id="10958de6-1d78-80c6-8a6e-ff96e511b026" class="">Image Sharpening</h2><p id="10958de6-1d78-809e-80ed-e057de2f1518" class="">This part focus on sharpening the image using the blurry version of the image through Gaussian filter. We first get detail by subtracting the blurry image from the original, and add a specific amount of detail back to the origin, creating a sharpening effect.</p><div id="10958de6-1d78-80bf-ae3a-c78d29365056" class="column-list"><div id="3ea46ad3-99a8-48f5-ad20-6f5384a218ea" style="width:33.33333333333333%" class="column"><figure id="10958de6-1d78-8008-911c-ea0fa0ffd6b8" class="image" style="text-align:center"><a href="taj.jpg"><img style="width:205.3229217529297px" src="taj.jpg"/></a></figure><figure id="10958de6-1d78-80c8-9fea-ce8578a6c181" class="image"><a href="cat.jpg"><img style="width:205.3125px" src="cat.jpg"/></a></figure><p id="10958de6-1d78-806d-bad7-dc08413160cb" class="">original</p></div><div id="f7009c8b-244d-4fad-b414-c13c4875f5bc" style="width:33.33333333333333%" class="column"><figure id="10958de6-1d78-8050-a509-d77eea246772" class="image" style="text-align:center"><a href="taj_blur.jpg"><img style="width:205.3229217529297px" src="taj_blur.jpg"/></a></figure><figure id="10958de6-1d78-80c3-9fa4-f9b51cff3780" class="image"><a href="cat_blur.jpg"><img style="width:1280px" src="cat_blur.jpg"/></a></figure><p id="10958de6-1d78-8057-b9eb-c88a5ef194c7" class="">blurry</p></div><div id="343e20de-99fe-46c8-96b9-3d07722661dd" style="width:33.33333333333335%" class="column"><figure id="10958de6-1d78-808b-90ec-f83f1edff065" class="image" style="text-align:center"><a href="taj_enhance.jpg"><img style="width:205.3229217529297px" src="taj_enhance.jpg"/></a></figure><figure id="10958de6-1d78-80d1-9200-e00c6887348b" class="image"><a href="cat_enhance.jpg"><img style="width:205.3125px" src="cat_enhance.jpg"/></a></figure><p id="10958de6-1d78-8031-82b6-d9e187767909" class="">enhance</p></div></div><p id="10958de6-1d78-800e-9160-c8b5b0f5cc85" class="">
+</p><h2 id="943866c6-4a3c-4d5d-ab07-7b8b7c423c52" class="">Hybrid Images &amp; Fourier Transform</h2><p id="10958de6-1d78-80c8-861a-d1e026c2d86c" class="">We can actually combine two images into one where you can only see one of them far away and another close up. This is because we can filter the high frequency from one and low-frequency from another. For low-pass filter, we can use the standard 2D Gaussian filter. For high-pass filter, we can use the impulse filter minus the Gaussian filtered image. In my implementation, I finds using sigma value of 20 for low-pass and 10 for high-pass while keeping the kernel_size equals three times the sigma value generally work pretty well. Here you can see some examples.</p><div id="10958de6-1d78-8036-b4fe-ff25095a59e6" class="column-list"><div id="5f93a044-20fc-40a4-a2f5-29f3e8ab12b1" style="width:33.33333333333333%" class="column"><figure id="10958de6-1d78-800d-b4a5-dc6149482921" class="image" style="text-align:center"><a href="nutmeg_a.jpg"><img style="width:205.3125px" src="nutmeg_a.jpg"/></a></figure><p id="10958de6-1d78-80ca-a5de-c08b09ab5352" class="">nutmeg</p><figure id="10958de6-1d78-80ac-a1d3-c2e8850805a4" class="image" style="text-align:center"><a href="broccoli_a.jpg"><img style="width:647px" src="broccoli_a.jpg"/></a></figure><p id="10958de6-1d78-80a3-a978-dfa33c20ab25" class="">broccoli</p><figure id="10958de6-1d78-80fb-b65c-d2bdfab9d089" class="image"><a href="dog_a.jpg"><img style="width:205.30209350585938px" src="dog_a.jpg"/></a></figure><p id="3c62b581-ee7e-4bbb-8180-eb699a3ae6fb" class="">dog</p></div><div id="13618901-32a4-43e5-b004-06879da3416c" style="width:33.333333333333336%" class="column"><figure id="10958de6-1d78-804b-8e65-e07b9096c68a" class="image" style="text-align:center"><a href="derek_a.jpg"><img style="width:675px" src="derek_a.jpg"/></a></figure><p id="10958de6-1d78-804b-9675-d7da5186c655" class="">derek</p><figure id="10958de6-1d78-8038-8800-e192835b75e1" class="image" style="text-align:center"><a href="mushroom_a.jpg"><img style="width:205.3125px" src="mushroom_a.jpg"/></a></figure><p id="10958de6-1d78-8078-83e5-f4d6aaa9c2fb" class="">mushroom</p><figure id="10958de6-1d78-807c-989e-f21eeece048b" class="image"><a href="horse_a.jpg"><img style="width:205.30209350585938px" src="horse_a.jpg"/></a></figure><p id="10958de6-1d78-80fd-9926-ca93c21a6201" class="">horse</p></div><div id="dd718ce9-24bf-4c44-95c9-2d7e7bc731a3" style="width:33.33333333333333%" class="column"><figure id="10958de6-1d78-803d-8879-cc3e482c3f64" class="image" style="text-align:center"><a href="derekmeg.jpg"><img style="width:675px" src="derekmeg.jpg"/></a></figure><p id="def205a8-faba-48b3-96de-043a064fc952" class="">dermeg</p><figure id="10958de6-1d78-8058-8759-ea7d1a39cfd6" class="image" style="text-align:center"><a href="mushccoli.jpg"><img style="width:647px" src="mushccoli.jpg"/></a></figure><p id="10958de6-1d78-80e5-9ba6-f8920105798b" class="">mushccoli</p><figure id="10958de6-1d78-809d-89f2-d660f18a94ee" class="image"><a href="hordog.jpg"><img style="width:205.30209350585938px" src="hordog.jpg"/></a></figure><p id="10958de6-1d78-80ec-8c48-e7f834febdc8" class="">hordog</p></div></div><p id="10958de6-1d78-806d-b0dd-c58cee59f010" class="">For mushccoli, it is kind of a failure because even close up the mushroom might appear more obvious than broccoli, this is probably due to the red color of the mushroom, which hides the detail of broccoli, and a high contrasct by the white dot on mushroom. Hordog is my favorite, you can see some Fourier Transform frequencies of the process that makes hordog.</p><div id="10958de6-1d78-80ea-9da5-ed50a74ac9e2" class="column-list"><div id="4c08a435-fca1-41d6-95e5-6daf115beb5f" style="width:50%" class="column"><figure id="10958de6-1d78-80fb-ae42-d221b22853ee" class="image"><a href="dog_f.jpg"><img style="width:1323px" src="dog_f.jpg"/></a></figure><p id="10958de6-1d78-8095-82c3-ea14d56948a0" class="">dog</p><figure id="10958de6-1d78-806b-bd6b-eb863c024c16" class="image"><a href="horse_f.jpg"><img style="width:1323px" src="horse_f.jpg"/></a></figure><p id="10958de6-1d78-8038-aae8-db9d36c920e9" class="">horse</p></div><div id="0067a42e-840b-4e4e-8a67-300ebb6c9cab" style="width:50%" class="column"><figure id="10958de6-1d78-80d0-bbaf-ec564887e6aa" class="image"><a href="dog_low_f.jpg"><img style="width:1323px" src="dog_low_f.jpg"/></a></figure><p id="10958de6-1d78-8033-9c63-f85e744764ac" class="">dog_low_filter</p><figure id="10958de6-1d78-8065-96d4-f0a8f2ae2608" class="image"><a href="horse_high_f.jpg"><img style="width:330.9895935058594px" src="horse_high_f.jpg"/></a></figure><p id="03f89693-ae5c-4c48-bfa1-6f6c960039a2" class="">horse_high_filter</p></div></div><figure id="10958de6-1d78-8007-83a8-f54df2ee2651" class="image"><a href="hybrid_f.jpg"><img style="width:707.9791870117188px" src="hybrid_f.jpg"/></a></figure><p id="10958de6-1d78-8065-8fff-d3f607341bc2" class="">hybrid: hordog</p><p id="8259e23c-dc96-4805-af4a-87c8d192e95f" class="">
+</p><h2 id="fa0b5ef7-5734-43d8-b79c-6ec65df4cca5" class="">Images Blending</h2><p id="10958de6-1d78-8038-8302-f59fc2bbd0e8" class="">This part use Gaussian and Laplacian Stacks two blend two images together. We create Laplacian Stacks of a certain layer amount for each image, and multiplies each layer with the corresponding layer of Gaussian stack for the mask. We then add all them together on each layer, and then collapse the result stack. Specifically, for each RGB channel of each layer of the result stack,</p><p id="10958de6-1d78-8057-baf4-fa7cbd2b4e2d" class=""> <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>result</mtext><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo>=</mo><mtext>im1_stack</mtext><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo>⋅</mo><mtext>mask_stack</mtext><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo>+</mo><mtext>im2_stack</mtext><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo>⋅</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mtext>mask_stack</mtext><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\text{result}[i] = \text{im1\_stack}[i] \cdot \text{mask\_stack}[i] + \text{im2\_stack}[i] \cdot (1 - \text{mask\_stack}[i])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">result</span></span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mord text"><span class="mord">im1_stack</span></span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mord text"><span class="mord">mask_stack</span></span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mord text"><span class="mord">im2_stack</span></span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mord text"><span class="mord">mask_stack</span></span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">])</span></span></span></span></span><span>﻿</span></span></p><p id="b7fafecf-4ffe-4ff0-96b4-7ae5e4c438c4" class="">Then we can have the final output by collapsing the result stack: <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>output</mtext><mo>=</mo><msub><mo>∑</mo><mi>i</mi></msub><mtext>result</mtext><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">\text{output} = \sum_{i} \text{result}[i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8095em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">output</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0497em;vertical-align:-0.2997em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.162em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">result</span></span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span></span></span></span></span><span>﻿</span></span>.</p><p id="10958de6-1d78-8073-8efa-d75c07aabb96" class="">Besides Oraple, I creates two extra blended images Sprike and Liger. Sprike is more like a failure comparing to Liger, this is because the red and green colors are too contrasting to each other, and thus make the blending effect looks bad. Also, the word printed on two cans are not aligned to the same height and thus look off. But Liger looks a bit too real!</p><p id="9c24e420-e3e3-47fc-8960-1b5c72221d8b" class=""><strong>Oraple</strong></p><p id="10858de6-1d78-803e-8308-c3e5b31584ce" class="">Normalized Laplacian Stack for orange and apple</p><figure id="cd1fb270-1bc4-4bf7-86f0-0bbc6f809a6d" class="image"><a href="image.png"><img style="width:1111.322998046875px" src="image.png"/></a></figure><figure id="10858de6-1d78-80a4-b8a9-ffa3911971ac" class="image"><a href="image%201.png"><img style="width:1111.322998046875px" src="image%201.png"/></a></figure><p id="10858de6-1d78-80b0-b14d-e862e83a9264" class="">Gaussian Stack for regular shape mask</p><figure id="10858de6-1d78-80fb-ad79-f81f0d7a8f6e" class="image"><a href="image%202.png"><img style="width:1111.2708740234375px" src="image%202.png"/></a></figure><div id="10958de6-1d78-80f5-923d-fde171b46e1d" class="column-list"><div id="7ccc77e3-4283-4aba-8e6c-19e97a8aa9af" style="width:33.33333333333333%" class="column"><p id="9cfafc66-296e-4fb9-9d3a-6bb63bb9738b" class="">
+</p></div><div id="a25f2dd7-8fad-4b71-bf36-e8c0ff234ce8" style="width:33.33333333333333%" class="column"><p id="222fc16b-3eb1-4960-8c61-6ca4bdd75ea9" class="">Oraple</p></div><div id="b52d93e2-b33d-4306-9dc6-6ed19aa4a981" style="width:33.33333333333333%" class="column"><p id="1ac5bfa7-ace2-4257-8df5-699c2036be55" class="">
+</p></div></div><figure id="cf440133-0f88-4873-913f-4fd8b1629db1" class="image" style="text-align:center"><a href="orple.jpg"><img style="width:300px" src="orple.jpg"/></a></figure><p id="af44847d-9f12-49c0-adfe-707a76007d8d" class="">
+</p><p id="10958de6-1d78-80ba-a807-c19b2d06e430" class=""><strong>Sprike</strong></p><div id="10958de6-1d78-80c0-95c7-e2b71fe556cd" class="column-list"><div id="22935163-fb7f-4eb5-9260-52296a507965" style="width:33.33333333333333%" class="column"><figure id="10958de6-1d78-8027-ad47-f850c5524bbe" class="image"><a href="sprite_a.jpg"><img style="width:205.3125px" src="sprite_a.jpg"/></a></figure><p id="10958de6-1d78-8097-bc86-fa5486f7b9ac" class="">Sprite</p></div><div id="b5c1a713-56fb-492d-9be6-2388d39291ca" style="width:33.33333333333333%" class="column"><figure id="10958de6-1d78-80cd-8553-e6e565840b70" class="image"><a href="coke_a.jpg"><img style="width:687px" src="coke_a.jpg"/></a></figure><p id="10958de6-1d78-803c-b1c8-ec2eb9ee2622" class="">Coke</p></div><div id="391ed163-b0a7-4b46-b023-f733ec578cf9" style="width:33.33333333333333%" class="column"><figure id="10958de6-1d78-80ee-99db-cf048f031f40" class="image"><a href="sprike.jpg"><img style="width:687px" src="sprike.jpg"/></a></figure><p id="10958de6-1d78-803c-b70b-c4508c47c296" class="">Sprike</p></div></div><p id="c4bd679b-a956-4ce3-8e91-f9b3fc0b0b8e" class="">
+</p><p id="d64eceef-abbd-4837-97d9-83f7829afec6" class=""><strong>Liger</strong></p><div id="4d174f2d-7f42-4a2c-aaad-596b10f226c8" class="column-list"><div id="c933a73a-4b55-49b6-ba09-a9ad812f109a" style="width:100%" class="column"><figure id="10958de6-1d78-80c4-9a20-c02d5acfe371" class="image"><a href="tiger_a.jpg"><img style="width:205.30209350585938px" src="tiger_a.jpg"/></a></figure><p id="10858de6-1d78-801b-9c16-da0b7ff1d5d0" class="">Tiger</p></div><div id="266ac6e9-e04e-471c-86e4-4e670303a46c" style="width:100%" class="column"><figure id="c516077a-80eb-4dfc-9c17-3da68a9ec7d7" class="image"><a href="lion_a.jpg"><img style="width:921px" src="lion_a.jpg"/></a></figure><p id="10858de6-1d78-80f0-832a-fc8dd988bdb5" class="">Lion</p></div><div id="65b61a2c-0fa5-4472-b8dc-c5169fde964f" style="width:100%" class="column"><figure id="10858de6-1d78-801c-ace0-e13841d81b17" class="image"><a href="tiger_mask.jpg"><img style="width:345.3125px" src="tiger_mask.jpg"/></a></figure><p id="10958de6-1d78-808f-ade2-ccfb91c1d352" class="">Irregular Mask</p></div></div><figure id="10858de6-1d78-80d7-881e-cfa66e47835d" class="image"><a href="7d5a4f44-2422-448f-90c1-fc53ed9e5ab2.png"><img style="width:518.2931354359926px" src="7d5a4f44-2422-448f-90c1-fc53ed9e5ab2.png"/></a></figure><p id="10858de6-1d78-8038-88b8-c68c52892312" class="">Liger</p><p id="10958de6-1d78-8068-9f08-f9ed7906dddd" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
